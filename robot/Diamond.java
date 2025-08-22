@@ -27,202 +27,29 @@ public class Diamond implements Directions{
 
             rob.move();
             rob.move();
-            rob.putBeeper();
             rob.turnLeft();
             rob.turnLeft();
 
-
-            rob.move();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.move();
-            rob.putBeeper();
-            rob.turnLeft();
-            
-            rob.move();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.move();
-            rob.putBeeper();
-            rob.turnLeft();
-
-            rob.move();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.move();
-            rob.putBeeper();
-            rob.turnLeft();
-
-            rob.move();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.move();
-            rob.putBeeper();
-            rob.turnLeft();
-
-            rob.move();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.move();
-            rob.putBeeper();
-            rob.turnLeft();
-            rob.move();
-
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.move();
-            rob.putBeeper();
-            rob.move();
-
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.move();
-            rob.putBeeper();
-
-            rob.turnLeft();
-            rob.move();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.move();
-            rob.putBeeper();
-
-            rob.turnLeft();
-            rob.move();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.move();
-            rob.putBeeper();
-
-            rob.turnLeft();
-            rob.move();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.move();
-            rob.putBeeper();
-
-            rob.turnLeft();
-            rob.move();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.move();
-            rob.putBeeper();
-
-            rob.turnLeft();
-            rob.move();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.move();
-            rob.putBeeper();
-
+            for (int k = 1; k <= 4; k++)
+            {
+                for (int i = 1; i <= 5; i++)
+                {
+                    rob.move();
+                    for (int j = 1; j < 4; j++)
+                    {
+                        rob.turnLeft();
+                    }
+                    rob.move();
+                    rob.putBeeper();
+                    rob.turnLeft();
+                }
+                for (int l = 1; l <= 3; l++)
+                {
+                rob.turnLeft();
+                }
+            }
             
 
-
-
-            rob.move();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.move();
-            rob.putBeeper();
-            rob.turnLeft();
-            
-            rob.move();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.move();
-            rob.putBeeper();
-            rob.turnLeft();
-
-            rob.move();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.move();
-            rob.putBeeper();
-            rob.turnLeft();
-
-            rob.move();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.move();
-            rob.putBeeper();
-            rob.turnLeft();
-
-            rob.move();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.move();
-            rob.putBeeper();
-            rob.turnLeft();
-            rob.move();
-
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.move();
-            rob.putBeeper();
-            rob.move();
-
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.move();
-            rob.putBeeper();
-
-            rob.turnLeft();
-            rob.move();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.move();
-            rob.putBeeper();
-
-            rob.turnLeft();
-            rob.move();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.move();
-            rob.putBeeper();
-
-            rob.turnLeft();
-            rob.move();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.move();
-            rob.putBeeper();
-
-            rob.turnLeft();
-            rob.move();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.move();
-            rob.putBeeper();
-
-            rob.turnLeft();
-            rob.move();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.turnLeft();
-            rob.move();
-            rob.putBeeper();
 
             
 
