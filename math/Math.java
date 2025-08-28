@@ -28,15 +28,23 @@ class Math {
     //For AP we need to know: int, double, boolean
 
     //List examples of the types below and give definition
-    //int (integer):
-    //double:
-    //boolean:
+
+    //int (integer): integer value that can't have decimal values
+    //double: integer value that can have decimal values
+    //boolean: true or false
 
     //For now we are just going to work with primitive
 
     //Create 3 variables of each of the above types (USE GOOD CODING PRACTICE WHEN CREATING THE VARIABLES
 
 
+      int wawa = 1;
+      double wava = 10.1;
+      boolean banana = true;
+
+      System.out.println(wawa - 1);
+      System.out.println(wava * 86);
+      System.out.println(banana);
 
 
 
@@ -51,13 +59,33 @@ class Math {
 
     //Odd integers from 1 to 100, inclusive of both
 
+    for (int i = 1; i <= 100; i+=2)
+    {
+      System.out.println(i);
+    }
+
 
 
     //All multiples of 3 from 1 to 100
 
+    System.out.println("skip by 3s");
+    System.out.println("");
 
+    for (int i = 3; i <= 100; i+=2)
+    {
+      System.out.println(i);
+    }
 
 
     //Starting at 1000, print on the same line (with a - [hypthen] between each) all of the numbers that end in 0 going down to 0
+
+    for (int i = 0; i <= 1000; i += 10)
+    {
+     System.out.print(i + "-");
+
+
+    }
+
+
   }
 }
