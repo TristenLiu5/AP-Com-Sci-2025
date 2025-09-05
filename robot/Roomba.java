@@ -20,7 +20,6 @@ public class Roomba implements Directions {
 	private Robot roomba;
 
 	// You will need to add many variables!!
-	int inward = 0;
 	int totalBeepers = 0;
 
 
@@ -45,11 +44,11 @@ public class Roomba implements Directions {
 
 		// the line below causes a null pointer exception
 		// what is that and why are we getting it?
-		for (int l = 1; l <= 3; l++)
+		for (int l = 1; l <= 2; l++)
 		{
-			for (int j = 1; j <= 2; j++)
+			for (int j = 1; j <= 4; j++)
 			{
-				for(int i = (1 + inward); i <= 7; i++)
+				while (roomba.frontIsClear() == true)
 				{
 					while (roomba.nextToABeeper())
 					{
@@ -58,31 +57,12 @@ public class Roomba implements Directions {
 					}
 					roomba.move();
 				}
-				roomba.turnLeft();
-
-				for(int k = (1 + inward); k <= 4; k++)
-				{
+				if (roomba.facingEast() == true)
+					roomba.turnLeft();
 					roomba.move();
-					while (roomba.nextToABeeper())
-					{
-						roomba.pickBeeper();
-						totalBeepers += 1;
-					}
-				}
-				roomba.turnLeft();
+					roomba.turnLeft();
+				else
 			}
-			if (inward <= 2)
-			{
-				roomba.move();
-				roomba.turnLeft();
-				roomba.move();
-			}
-			for (int turnRight = 1; turnRight <= 3; turnRight++)
-			{
-				roomba.turnLeft();
-			}	
-
-			inward += 2;
 		}
 
 		
