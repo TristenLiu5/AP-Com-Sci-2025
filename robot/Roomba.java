@@ -21,6 +21,9 @@ public class Roomba implements Directions {
 
 	// You will need to add many variables!!
 	int totalBeepers = 0;
+	int pileTotal = 0;
+	int pileMax = 0;
+
 
 
 	public int cleanRoom(String worldName, int startX, int startY) {
@@ -38,34 +41,61 @@ public class Roomba implements Directions {
 		 * large, complex task into smaller, easier to solve problems.
 		 */
 
-		Robot roomba = new Robot(7,6,East,100);
+		Robot roomba = new Robot(7,6,East,0);
 
 
 
 		// the line below causes a null pointer exception
 		// what is that and why are we getting it?
-		for (int l = 1; l <= 2; l++)
-		{
-			for (int j = 1; j <= 4; j++)
-			{
-				while (roomba.frontIsClear() == true)
-				{
-					while (roomba.nextToABeeper())
-					{
-						roomba.pickBeeper();
-						totalBeepers += 1;
-					}
-					roomba.move();
-				}
-				if (roomba.facingEast() == true)
-					roomba.turnLeft();
-					roomba.move();
-					roomba.turnLeft();
-				else
-			}
-		}
 
 		
+		for (int i = 1; i <= 5; i++)
+		{
+			while (roomba.frontIsClear() == true)
+			{
+				pileTotal = 0;
+				while (roomba.nextToABeeper())
+				{
+					roomba.pickBeeper();
+					totalBeepers += 1;
+					pileTotal += 1;
+				}
+				if (pileTotal > pileMax)
+				{
+					pileMax = pileTotal;
+					System.out.println("Current Max = " + pileMax);
+				}
+			
+			roomba.move();
+			
+			}
+			if (roomba.frontIsClear() == false)
+			{
+				if (roomba.facingEast() == true)
+				{
+				roomba.turnLeft();
+					if (roomba.frontIsClear() == true)
+					{
+					roomba.move();
+					roomba.turnLeft();
+					}
+				}
+				else
+				{
+				roomba.turnLeft();
+				roomba.turnLeft();
+				roomba.turnLeft();
+					if (roomba.frontIsClear() == true)
+					{
+					roomba.move();
+					roomba.turnLeft();
+					roomba.turnLeft();
+					roomba.turnLeft();
+					}
+				}
+			}	
+		}
+			
 			
 
 		// Need to move this somewhere else.
