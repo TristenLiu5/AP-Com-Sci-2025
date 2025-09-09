@@ -21,8 +21,10 @@ public class Roomba implements Directions {
 
 	// You will need to add many variables!!
 	int totalBeepers = 0;
+	int totalSteps = 0;
 	int pileTotal = 0;
 	int pileMax = 0;
+	boolean shutdown = false;
 
 
 
@@ -49,57 +51,70 @@ public class Roomba implements Directions {
 		// what is that and why are we getting it?
 
 		
-		for (int i = 1; i <= 5; i++)
+		while (shutdown == false)
 		{
-			while (roomba.frontIsClear() == true)
 			{
-				pileTotal = 0;
-				while (roomba.nextToABeeper())
+				while (roomba.frontIsClear() == true)
 				{
-					roomba.pickBeeper();
-					totalBeepers += 1;
-					pileTotal += 1;
+					pileTotal = 0;
+					while (roomba.nextToABeeper())
+					{
+						roomba.pickBeeper();
+						totalBeepers++;
+						pileTotal++;
+					}
+					if (pileTotal > pileMax)
+					{
+						pileMax = pileTotal;
+						System.out.println("Current Max = " + pileMax);
+					}
+				
+				roomba.move();
+				totalSteps++;
+				
 				}
-				if (pileTotal > pileMax)
+				if (roomba.frontIsClear() == false)
 				{
-					pileMax = pileTotal;
-					System.out.println("Current Max = " + pileMax);
-				}
-			
-			roomba.move();
-			
+					if (roomba.facingEast() == true)
+					{
+					roomba.turnLeft();
+						if (roomba.frontIsClear() == true)
+						{
+						roomba.move();
+						totalSteps++;
+						roomba.turnLeft();
+						}
+						else
+						{
+							shutdown = true;
+						}
+					}
+					else
+					{
+					roomba.turnLeft();
+					roomba.turnLeft();
+					roomba.turnLeft();
+						if (roomba.frontIsClear() == true)
+						{
+						roomba.move();
+						roomba.turnLeft();
+						roomba.turnLeft();
+						roomba.turnLeft();
+						}
+						else
+						{
+							shutdown = true;
+						}
+					}
+				}	
 			}
-			if (roomba.frontIsClear() == false)
-			{
-				if (roomba.facingEast() == true)
-				{
-				roomba.turnLeft();
-					if (roomba.frontIsClear() == true)
-					{
-					roomba.move();
-					roomba.turnLeft();
-					}
-				}
-				else
-				{
-				roomba.turnLeft();
-				roomba.turnLeft();
-				roomba.turnLeft();
-					if (roomba.frontIsClear() == true)
-					{
-					roomba.move();
-					roomba.turnLeft();
-					roomba.turnLeft();
-					roomba.turnLeft();
-					}
-				}
-			}	
 		}
-			
+		System.out.println("Roomba took " + totalSteps + " steps!");
 			
 
 		// Need to move this somewhere else.
         // This method should return the total number of beepers cleaned up.
 		return totalBeepers;
+
 	}
 }
