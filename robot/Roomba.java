@@ -26,6 +26,7 @@ public class Roomba implements Directions {
 	int largestPile = 0;
 	int largestPileX = 0;
 	int largestPileY = 0;
+	int area = 1;
 	boolean shutdown = false;
 
 
@@ -71,11 +72,12 @@ public class Roomba implements Directions {
 						largestPileX = roomba.street();
 						largestPileY = roomba.avenue();
 						System.out.println("Current Max = " + largestPile);
-						System.out.println("Max Pile Coordinates: ("+ largestPileX + " , " + largestPileY + ")");
+						System.out.println("Max pile coordinates: ("+ largestPileX + " , " + largestPileY + ")");
 					}
 				
 				roomba.move();
 				totalSteps++;
+				area++;
 				
 				}
 				if (roomba.frontIsClear() == false)
@@ -116,7 +118,6 @@ public class Roomba implements Directions {
 			}
 		}
 		System.out.println("Roomba took " + totalSteps + " steps!");
-		int area = totalSteps += 1;
 		System.out.println("Total area of room: " + area);
 
 			
