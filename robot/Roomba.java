@@ -17,7 +17,6 @@ public class Roomba implements Directions {
 	}
 
 	// declared here so it is visible in all the methods!
-	private Robot roomba;
 
 	// You will need to add many variables!!
 	int totalBeepers = 0;
@@ -69,8 +68,8 @@ public class Roomba implements Directions {
 					if (pileSize > largestPile)
 					{
 						largestPile = pileSize;
-						largestPileX = roomba.street();
-						largestPileY = roomba.avenue();
+						largestPileX = roomba.avenue();
+						largestPileY = roomba.street();
 						System.out.println("Current Max = " + largestPile);
 						System.out.println("Max pile coordinates: ("+ largestPileX + " , " + largestPileY + ")");
 					}
@@ -89,6 +88,7 @@ public class Roomba implements Directions {
 						{
 						roomba.move();
 						totalSteps++;
+						area++;
 						roomba.turnLeft();
 						}
 						else
@@ -98,16 +98,19 @@ public class Roomba implements Directions {
 					}
 					else
 					{
+					for (int turnRight = 1; turnRight <= 3; turnRight++)
+					{
 					roomba.turnLeft();
-					roomba.turnLeft();
-					roomba.turnLeft();
+					}
 						if (roomba.frontIsClear() == true)
 						{
 						roomba.move();
+						area++;
 						totalSteps++;
+						for (int turnRight = 1; turnRight <= 3; turnRight++)
+						{
 						roomba.turnLeft();
-						roomba.turnLeft();
-						roomba.turnLeft();
+						}
 						}
 						else
 						{
