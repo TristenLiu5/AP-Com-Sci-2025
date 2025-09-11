@@ -22,8 +22,10 @@ public class Roomba implements Directions {
 	// You will need to add many variables!!
 	int totalBeepers = 0;
 	int totalSteps = 0;
-	int pileTotal = 0;
-	int pileMax = 0;
+	int pileSize = 0;
+	int largestPile = 0;
+	int largestPileX = 0;
+	int largestPileY = 0;
 	boolean shutdown = false;
 
 
@@ -56,17 +58,20 @@ public class Roomba implements Directions {
 			{
 				while (roomba.frontIsClear() == true)
 				{
-					pileTotal = 0;
+					pileSize = 0;
 					while (roomba.nextToABeeper())
 					{
 						roomba.pickBeeper();
 						totalBeepers++;
-						pileTotal++;
+						pileSize++;
 					}
-					if (pileTotal > pileMax)
+					if (pileSize > largestPile)
 					{
-						pileMax = pileTotal;
-						System.out.println("Current Max = " + pileMax);
+						largestPile = pileSize;
+						largestPileX = roomba.street();
+						largestPileY = roomba.avenue();
+						System.out.println("Current Max = " + largestPile);
+						System.out.println("Max Pile Coordinates: ("+ largestPileX + " , " + largestPileY + ")");
 					}
 				
 				roomba.move();
@@ -97,6 +102,7 @@ public class Roomba implements Directions {
 						if (roomba.frontIsClear() == true)
 						{
 						roomba.move();
+						totalSteps++;
 						roomba.turnLeft();
 						roomba.turnLeft();
 						roomba.turnLeft();
@@ -110,6 +116,9 @@ public class Roomba implements Directions {
 			}
 		}
 		System.out.println("Roomba took " + totalSteps + " steps!");
+		int area = totalSteps += 1;
+		System.out.println("Total area of room: " + area);
+
 			
 
 		// Need to move this somewhere else.
