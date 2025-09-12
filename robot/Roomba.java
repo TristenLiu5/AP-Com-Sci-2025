@@ -27,6 +27,9 @@ public class Roomba implements Directions {
 	int largestPileY = 0;
 	int area = 1;
 	boolean shutdown = false;
+	double pileAverage = 0.0;
+	double pilePercent = 0.0;
+	int pileAmount = 0;
 
 
 
@@ -55,10 +58,17 @@ public class Roomba implements Directions {
 		
 		while (shutdown == false)
 		{
+			if (totalBeepers == 59)
 			{
+				shutdown = true;
+			}
 				while (roomba.frontIsClear() == true)
 				{
 					pileSize = 0;
+					if (roomba.nextToABeeper() == true)
+					{
+						pileAmount++;
+					}
 					while (roomba.nextToABeeper())
 					{
 						roomba.pickBeeper();
@@ -68,10 +78,8 @@ public class Roomba implements Directions {
 					if (pileSize > largestPile)
 					{
 						largestPile = pileSize;
-						largestPileX = roomba.avenue();
-						largestPileY = roomba.street();
-						System.out.println("Current Max = " + largestPile);
-						System.out.println("Max pile coordinates: ("+ largestPileX + " , " + largestPileY + ")");
+						largestPileX = roomba.street();
+						largestPileY = roomba.avenue();
 					}
 				
 				roomba.move();
@@ -91,12 +99,8 @@ public class Roomba implements Directions {
 						area++;
 						roomba.turnLeft();
 						}
-						else
-						{
-							shutdown = true;
-						}
 					}
-					else
+					else if (roomba.facingWest() == true)
 					{
 					for (int turnRight = 1; turnRight <= 3; turnRight++)
 					{
@@ -111,17 +115,19 @@ public class Roomba implements Directions {
 						{
 						roomba.turnLeft();
 						}
-						}
-						else
-						{
-							shutdown = true;
-						}
 					}
-				}	
-			}
+				}
+			}	
 		}
+		
+		pilePercent = (area/pileAmount);
+		System.out.println("Largest Pile = " + largestPile);
+		System.out.println("Largest pile coordinates: ("+ largestPileX + " , " + largestPileY + ")");
+		System.out.println(pilePercent);
 		System.out.println("Roomba took " + totalSteps + " steps!");
 		System.out.println("Total area of room: " + area);
+		System.out.println(pileAmount);
+		
 
 			
 
