@@ -7,7 +7,7 @@ public class Roomba implements Directions {
 	// Main method to make this self-contained
 	public static void main(String[] args) {
 		// LEAVE THIS ALONE!!!!!!
-		String worldName = "robot/basicRoom.wld";
+		String worldName = "robot/TestWorld-2.wld";
 
 		Roomba cleaner = new Roomba();
 		int totalBeepers = cleaner.cleanRoom(worldName, 7, 6);
@@ -38,7 +38,7 @@ public class Roomba implements Directions {
 
 		World.readWorld(worldName);
 		World.setVisible(true);
-		World.setDelay(15);
+		World.setDelay(5);
 
 
 		/** This section will have all the logic that takes the Robot to every location
@@ -46,7 +46,7 @@ public class Roomba implements Directions {
 		 * large, complex task into smaller, easier to solve problems.
 		 */
 
-		Robot roomba = new Robot(7,6,East,0);
+		Robot roomba = new Robot(5,6,East,0);
 
 
 
@@ -56,7 +56,7 @@ public class Roomba implements Directions {
 		
 		while (shutdown == false)
 		{
-			if (totalBeepers == 59)
+			if (totalBeepers == 245)
 			{
 				shutdown = true; //stops the while loop
 			}
@@ -131,12 +131,13 @@ public class Roomba implements Directions {
 		}
 		
 		//final results and printing
+		System.out.println("Roomba took " + totalSteps + " steps!");
+		System.out.println("Total area of room: " + area);
+		System.out.println("Total amount of piles: " + pileAmount);
 		System.out.println("Largest Pile = " + largestPile);
 		System.out.println("Largest pile coordinates: ("+ largestPileX + " , " + largestPileY + ")");
 		System.out.println("Pecent dirty: " + ((double) area/pileAmount));
 		System.out.println("Pile Average: " + (double) totalBeepers/pileAmount);
-		System.out.println("Roomba took " + totalSteps + " steps!");
-		System.out.println("Total area of room: " + area);
 		
 
 			
