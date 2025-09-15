@@ -27,8 +27,6 @@ public class Roomba implements Directions {
 	int largestPileY = 0;
 	int area = 1;
 	boolean shutdown = false;
-	double pileAverage = 0.0;
-	double pilePercent = 0.0;
 	int pileAmount = 0;
 
 
@@ -60,14 +58,14 @@ public class Roomba implements Directions {
 		{
 			if (totalBeepers == 59)
 			{
-				shutdown = true;
+				shutdown = true; //stops the while loop
 			}
 				while (roomba.frontIsClear() == true)
 				{
 					pileSize = 0;
 					if (roomba.nextToABeeper() == true)
 					{
-						pileAmount++;
+						pileAmount++; //amount of beeper piles, not total amount of beepers
 					}
 					while (roomba.nextToABeeper())
 					{
@@ -75,7 +73,7 @@ public class Roomba implements Directions {
 						totalBeepers++;
 						pileSize++;
 					}
-					if (pileSize > largestPile)
+					if (pileSize > largestPile) //largest pile
 					{
 						largestPile = pileSize;
 						largestPileX = roomba.street();
@@ -84,12 +82,24 @@ public class Roomba implements Directions {
 				
 				roomba.move();
 				totalSteps++;
-				area++;
+				area++; //area of room
 				
 				}
-				if (roomba.frontIsClear() == false)
+				if (roomba.frontIsClear() == false) //thing to make the roomba turn
 				{
-					if (roomba.facingEast() == true)
+				
+					if (roomba.nextToABeeper() == true) //see if there are beepers against the wall
+					{
+					pileAmount++;
+					}
+					while (roomba.nextToABeeper())
+					{
+					roomba.pickBeeper();
+					totalBeepers++;
+					pileSize++;
+					}
+
+					if (roomba.facingEast() == true) //turn to the left
 					{
 					roomba.turnLeft();
 						if (roomba.frontIsClear() == true)
@@ -100,7 +110,7 @@ public class Roomba implements Directions {
 						roomba.turnLeft();
 						}
 					}
-					else if (roomba.facingWest() == true)
+					else if (roomba.facingWest() == true) //turn to the right
 					{
 					for (int turnRight = 1; turnRight <= 3; turnRight++)
 					{
@@ -115,18 +125,18 @@ public class Roomba implements Directions {
 						{
 						roomba.turnLeft();
 						}
+						}
 					}
-				}
 			}	
 		}
 		
-		pilePercent = (area/pileAmount);
+		//final results and printing
 		System.out.println("Largest Pile = " + largestPile);
 		System.out.println("Largest pile coordinates: ("+ largestPileX + " , " + largestPileY + ")");
-		System.out.println(pilePercent);
+		System.out.println("Pecent dirty: " + ((double) area/pileAmount));
+		System.out.println("Pile Average: " + (double) totalBeepers/pileAmount);
 		System.out.println("Roomba took " + totalSteps + " steps!");
 		System.out.println("Total area of room: " + area);
-		System.out.println(pileAmount);
 		
 
 			
