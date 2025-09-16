@@ -7,7 +7,7 @@ public class Roomba implements Directions {
 	// Main method to make this self-contained
 	public static void main(String[] args) {
 		// LEAVE THIS ALONE!!!!!!
-		String worldName = "robot/TestWorld-2.wld";
+		String worldName = "robot/basicRoom.wld";
 
 		Roomba cleaner = new Roomba();
 		int totalBeepers = cleaner.cleanRoom(worldName, 7, 6);
@@ -20,7 +20,6 @@ public class Roomba implements Directions {
 
 	// You will need to add many variables!!
 	int totalBeepers = 0;
-	int totalSteps = 0;
 	int pileSize = 0;
 	int largestPile = 0;
 	int largestPileX = 0;
@@ -46,7 +45,7 @@ public class Roomba implements Directions {
 		 * large, complex task into smaller, easier to solve problems.
 		 */
 
-		Robot roomba = new Robot(5,6,East,0);
+		Robot roomba = new Robot(7,6,East,0);
 
 
 
@@ -56,10 +55,6 @@ public class Roomba implements Directions {
 		
 		while (shutdown == false)
 		{
-			if (totalBeepers == 59)
-			{
-				shutdown = true; //stops the while loop
-			}
 				while (roomba.frontIsClear() == true)
 				{
 					pileSize = 0;
@@ -109,6 +104,10 @@ public class Roomba implements Directions {
 						area++;
 						roomba.turnLeft();
 						}
+						else
+						{
+						shutdown = true; //stops the while loop if roomba can't turn
+						}
 					}
 					else if (roomba.facingWest() == true) //turn to the right
 					{
@@ -126,12 +125,15 @@ public class Roomba implements Directions {
 						roomba.turnLeft();
 						}
 						}
+						else
+						{
+							shutdown = true; //stops the while loop if roomba can't turn
+						}
 					}
 			}	
 		}
 		
 		//final results and printing
-		System.out.println("Roomba took " + totalSteps + " steps!");
 		System.out.println("Total area of room: " + area);
 		System.out.println("Total amount of piles: " + pileAmount);
 		System.out.println("Largest Pile = " + largestPile);
