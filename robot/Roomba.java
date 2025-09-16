@@ -56,7 +56,7 @@ public class Roomba implements Directions {
 		
 		while (shutdown == false)
 		{
-			if (totalBeepers == 245)
+			if (totalBeepers == 59)
 			{
 				shutdown = true; //stops the while loop
 			}
