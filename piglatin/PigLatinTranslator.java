@@ -4,6 +4,7 @@ public class PigLatinTranslator {
     public static Book translate(Book input) {
         Book translatedBook = new Book();
 
+
         // TODO: Add code here to populate translatedBook with a translation of the
         // input book.
         // Curent do-nothing code will return an empty book.
@@ -31,20 +32,24 @@ public class PigLatinTranslator {
 
         String result = "";
 
-        if ((input.substring(0,1).equals("a")) || (input.substring(0,1).equals("e")) || (input.substring(0,1).equals("i")) || (input.substring(0,1).equals("o")) || (input.substring(0,1).equals("u")) || (input.substring(0,1).equals("y")))
+        if ((input.indexOf("a")) == (0) || (input.indexOf("e")) == (0) || (input.indexOf("i")) == (0) || (input.indexOf("o")) == (0) || (input.indexOf("u")) == (0) || (input.indexOf("y")) == (0)) 
         {
             result = (input + "ay");
         }
-        else
+
+        while (locate > (input.indexOf("a")))
+        {
+        if ((input.indexOf("a")) == (0) || (input.indexOf("e")) == (0) || (input.indexOf("i")) == (0) || (input.indexOf("o")) == (0) || (input.indexOf("u")) == (0) || (input.indexOf("y")) == (0)) 
         {
             result = (input.substring(1) + input.substring(0,1) + "ay");
         }
-
+        }
         return result;
     }
 
     // Add additonal private methods here.
     // For example, I had one like this:
     // private static String capitalizeFirstLetter(String input)
+    private int locate = 0;
 
 }
