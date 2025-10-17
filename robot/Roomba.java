@@ -76,7 +76,6 @@ public class Roomba implements Directions {
 					}
 				
 				roomba.move();
-				totalSteps++;
 				area++; //area of room
 				
 				}
@@ -100,7 +99,6 @@ public class Roomba implements Directions {
 						if (roomba.frontIsClear() == true)
 						{
 						roomba.move();
-						totalSteps++;
 						area++;
 						roomba.turnLeft();
 						}
@@ -119,7 +117,6 @@ public class Roomba implements Directions {
 						{
 						roomba.move();
 						area++;
-						totalSteps++;
 						for (int turnRight = 1; turnRight <= 3; turnRight++)
 						{
 						roomba.turnLeft();

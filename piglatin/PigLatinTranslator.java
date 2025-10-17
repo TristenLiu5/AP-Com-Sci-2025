@@ -31,10 +31,14 @@ public class PigLatinTranslator {
 
         String result = "";
 
-        // TODO: Replace this code to correctly translate a single word.
-        // Start here first!
-        // This is the first place to work.
-        result = input; // delete this line
+        if ((input.substring(0,1).equals("a")) || (input.substring(0,1).equals("e")) || (input.substring(0,1).equals("i")) || (input.substring(0,1).equals("o")) || (input.substring(0,1).equals("u")) || (input.substring(0,1).equals("y")))
+        {
+            result = (input + "ay");
+        }
+        else
+        {
+            result = (input.substring(1) + input.substring(0,1) + "ay");
+        }
 
         return result;
     }
