@@ -22,11 +22,11 @@ public class PigLatinTranslator {
 
         String result = "";
 
-        Scanner sc = new Scanner(input);
-        while (sc.hasNext())
-    {
-        String word = input.next();
-    }
+    //     Scanner sc = new Scanner(input);
+    //     while (sc.hasNext())
+    // {
+    //     String word = input.next();
+    // }
 
         result = translateWord(input);
 
@@ -55,12 +55,17 @@ public class PigLatinTranslator {
         for (int i = 0; i < input.length(); i++)
         {
             String current = input.substring(i, i+1);
-            if (vowel(current))
+            if (vowel(current)) 
             {
-                //if (isUpperCase(input.substring(0)) == false)
-                //{
-                    result = (input.substring(0,i) + input.substring(i) + "ay");
-                //}
+                String upperInput = input.substring(0,1).toUpperCase();
+                if (upperInput.equals(input.substring(0,1)))
+                {
+                    result = (input.substring(0,1).toUpperCase() + input.substring(i).toLowerCase() + input.substring(0,i).toLowerCase() + "ay");
+                }
+                else
+                {
+                    result = (input.substring(i) + input.substring(0,i) + "ay");
+                }
                 break;
             }
         }
