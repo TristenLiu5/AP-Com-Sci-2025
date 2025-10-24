@@ -22,13 +22,6 @@ public class PigLatinTranslator {
 
         String result = "";
 
-        Scanner sc = new Scanner(input);
-        while (sc.hasNext())
-    {
-        String word = input.next();
-
-    }
-
         result = translateWord(input);
 
         return result;
@@ -53,6 +46,14 @@ public class PigLatinTranslator {
 
         String result = "";
         String closer = "";
+
+         Scanner sc = new Scanner(input);
+        while (sc.hasNext())
+    {
+        String word = sc.next();
+
+    }
+        sc.close();
 
         for (int i = 0; i < input.length(); i++)
         {
