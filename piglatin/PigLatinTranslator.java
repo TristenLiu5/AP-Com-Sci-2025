@@ -22,11 +22,12 @@ public class PigLatinTranslator {
 
         String result = "";
 
-    //     Scanner sc = new Scanner(input);
-    //     while (sc.hasNext())
-    // {
-    //     String word = input.next();
-    // }
+        Scanner sc = new Scanner(input);
+        while (sc.hasNext())
+    {
+        String word = input.next();
+
+    }
 
         result = translateWord(input);
 
@@ -38,7 +39,7 @@ public class PigLatinTranslator {
     {
         if (letter.length() == 1)
         {
-            String vowelBank = "aeiouy";
+            String vowelBank = "aeiouyAEIOUY";
             if (vowelBank.indexOf(letter) != -1)
             {
                 return true;
@@ -51,6 +52,7 @@ public class PigLatinTranslator {
         System.out.println("  -> translateWord('" + input + "')");
 
         String result = "";
+        String closer = "";
 
         for (int i = 0; i < input.length(); i++)
         {
@@ -58,15 +60,66 @@ public class PigLatinTranslator {
             if (vowel(current)) 
             {
                 String upperInput = input.substring(0,1).toUpperCase();
-                if (upperInput.equals(input.substring(0,1)))
+                if ((input.substring(input.length()-1).equals(".")) || input.substring(input.length()-1).equals(",") || input.substring(input.length()-1).equals("?") || input.substring(input.length()-1).equals("!"))
                 {
-                    result = (input.substring(0,1).toUpperCase() + input.substring(i).toLowerCase() + input.substring(0,i).toLowerCase() + "ay");
+                    if (upperInput.equals(input.substring(0,1)))
+                    {
+                        if (input.substring(input.length()-1).equals(".")) 
+                        {
+                            closer = ".";
+                        }
+                        else if (input.substring(input.length()-1).equals(","))
+                        {
+                            closer = ",";
+                        }
+                        else if (input.substring(input.length()-1).equals("?"))
+                        {
+                            closer = "?";
+                        }
+                        else if (input.substring(input.length()-1).equals("!"))
+                        {
+                            closer = "!";
+                        }
+                        result = (input.substring(i, input.length()-1) + input.substring(0,i) + "ay" + closer);
+                        result = (result.substring(0,1).toUpperCase() + result.substring(1).toLowerCase());
+                                                
+                    }
+                    else
+                    {
+                        if (input.substring(input.length()-1).equals(".")) 
+                        {
+                            closer = ".";
+                        }
+                        else if (input.substring(input.length()-1).equals(","))
+                        {
+                            closer = ",";
+                        }
+                        else if (input.substring(input.length()-1).equals("?"))
+                        {
+                            closer = "?";
+                        }
+                        else if (input.substring(input.length()-1).equals("!"))
+                        {
+                            closer = "!";
+                        }
+
+                        result = (input.substring(i) + input.substring(0,i) + "ay" + closer);
+                    }
                 }
                 else
                 {
-                    result = (input.substring(i) + input.substring(0,i) + "ay");
+                    if (upperInput.equals(input.substring(0,1)))
+                    {
+                        result = (input.substring(i) + input.substring(0,i) + "ay");
+                        result = (result.substring(0,1).toUpperCase() + result.substring(1).toLowerCase());
+                        
+                    }
+                    else
+                    {
+                        result = (input.substring(i) + input.substring(0,i) + "ay");
+                    }
                 }
-                break;
+                    break;
             }
         }
         
