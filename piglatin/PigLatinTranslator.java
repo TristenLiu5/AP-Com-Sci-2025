@@ -32,9 +32,13 @@ public class PigLatinTranslator {
         else
         {
 
-            result = translateWord((line));
+            result += translateWord((line + " "));
         }
     }
+        if (result.length() != 0)
+        {
+            result = result.substring(0, result.length() - 2);
+        }
         sc.close();
 
         return result;
