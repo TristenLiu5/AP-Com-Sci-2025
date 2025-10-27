@@ -4,6 +4,7 @@ import java.io.*;
 import java.net.*;
 //import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Book {
     private String title;
@@ -47,6 +48,15 @@ public class Book {
     }
 
     public void readFromString(String title, String string) {
+
+        Scanner sc = new Scanner(string);
+        {
+            while (sc.hasNextLine());
+            {
+                text.add(sc.nextLine());
+            }
+        }
+        sc.close();
         // load a book from an input string.
         this.title = title;
 
@@ -65,6 +75,14 @@ public class Book {
             // Scanner can open a file on a URL like this:
             // Scanner(bookUrl.openStream())
             // use: text.add(line) to add a line to the book.
+            Scanner input = new Scanner(bookUrl.openStream());
+            while (input.hasNextLine());
+            {
+                
+                input.nextLine();
+            }
+            input.close();
+
         } catch (IOException ex) {
             ex.printStackTrace();
         }

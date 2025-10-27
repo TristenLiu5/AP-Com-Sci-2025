@@ -19,10 +19,23 @@ public class PigLatinTranslator {
 
     public static String translate(String input) {
         System.out.println("  -> translate('" + input + "')");
-
+        
         String result = "";
+        Scanner sc = new Scanner(input);
+        while (sc.hasNext())
+    {   
+        String line = sc.next();
+        if (input.length() == 0)
+        {
+            result = translateWord(input);
+        }
+        else
+        {
 
-        result = translateWord(input);
+            result = translateWord((line));
+        }
+    }
+        sc.close();
 
         return result;
     }
@@ -46,14 +59,6 @@ public class PigLatinTranslator {
 
         String result = "";
         String closer = "";
-
-         Scanner sc = new Scanner(input);
-        while (sc.hasNext())
-    {
-        String word = sc.next();
-
-    }
-        sc.close();
 
         for (int i = 0; i < input.length(); i++)
         {
