@@ -32,12 +32,13 @@ public class PigLatinTranslator {
         else
         {
 
-            result += translateWord((line + " "));
+            result += translateWord(line);
+            result += " ";
         }
     }
         if (result.length() != 0)
         {
-            result = result.substring(0, result.length() - 2);
+            result = result.substring(0, result.length() - 1);
         }
         sc.close();
 
@@ -90,8 +91,8 @@ public class PigLatinTranslator {
                         {
                             closer = "!";
                         }
-                        result = (input.substring(i, input.length()-1) + input.substring(0,i) + "ay" + closer);
-                        result = (result.substring(0,1).toUpperCase() + result.substring(1).toLowerCase());
+                        result = (input.substring(i, input.length()-1) + input.substring(0,i).toLowerCase() + "ay" + closer);
+                        result = (result.substring(0,1).toUpperCase() + result.substring(1,i).toLowerCase() + result.substring(i));
                                                 
                     }
                     else
@@ -121,7 +122,7 @@ public class PigLatinTranslator {
                     if (upperInput.equals(input.substring(0,1)))
                     {
                         result = (input.substring(i) + input.substring(0,i) + "ay");
-                        result = (result.substring(0,1).toUpperCase() + result.substring(1).toLowerCase());
+                        result = (result.substring(0,1).toUpperCase() + result.substring(1,i+1) + result.substring(i+1).toLowerCase());
                         
                     }
                     else
