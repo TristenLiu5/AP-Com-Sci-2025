@@ -78,7 +78,6 @@ public class Book {
             Scanner input = new Scanner(bookUrl.openStream());
             while (input.hasNextLine());
             {
-                
                 input.nextLine();
             }
             input.close();
@@ -91,5 +90,17 @@ public class Book {
     void writeToFile(String name) {
         // TO DO: Add code here to write the contents of the book to a file.
         // Must write to file using provided name.
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(title + ".txt",  true)))
+        {
+            for (int i = 0; i <= getLineCount(); i++)
+            {
+                writer.write(text.get(i));
+                writer.newLine();
+            }
+        }
+        catch(IOException ex){
+            ex.printStackTrace();
+        }
     }
 }
