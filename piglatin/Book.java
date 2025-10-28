@@ -77,8 +77,8 @@ public class Book {
             // use: text.add(line) to add a line to the book.
             Scanner input = new Scanner(bookUrl.openStream());
             while (input.hasNextLine());
-            {
-                input.nextLine();
+            {   
+                text.add(input.nextLine());
             }
             input.close();
 
