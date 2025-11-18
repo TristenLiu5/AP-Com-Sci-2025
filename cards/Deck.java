@@ -2,27 +2,22 @@ package cards;
 
 public class Deck {
 
-    private int suit;
-    private int value;
+    public String[] Deck_Suit;
+    public String[] Deck_Value;
 
-    private static String[] SUITS = {"♦️", "♥️" , "♣️", "♠️"};
-    private static String[] VALUES = {"A", "2" , "3", "4","5", "6" , "7", "8","9", "10" , "J", "Q", "K"};
-
-    public void Card(int suit, int value)
+    public Deck()
     {
-        this.suit = suit;
-        this.value = value;
+    Deck_Suit[] = ["♦️", "♥️" , "♣️", "♠️","♦️", "♥️" , "♣️", "♠️","♦️", "♥️" , "♣️", "♠️","♦️", "♥️" , "♣️", "♠️","♦️", "♥️" , "♣️", "♠️","♦️", "♥️" , "♣️", "♠️","♦️", "♥️" , "♣️", "♠️","♦️", "♥️" , "♣️", "♠️","♦️", "♥️" , "♣️", "♠️","♦️", "♥️" , "♣️", "♠️","♦️", "♥️" , "♣️", "♠️","♦️", "♥️" , "♣️", "♠️","♦️", "♥️" , "♣️", "♠️"];
+    Deck_Value[] =  {"A","A", "A", "A", "2", "2", "2", "2" , "3", "3", "3", "3", "4", "4", "4", "4","5","5","5","5", "6", "6", "6", "6" , "7", "7", "7", "7", "8", "8", "8", "8","9","9","9","9", "10", "10", "10", "10" , "J", "J", "J", "J", "Q", "Q", "Q", "Q", "K", "K", "K", "K"};
     }
+public void shuffle(){
 
-    public int getValue()
-    {
-        return value;
-    }
+    public int random = ((int) (Math.random() * 52));
+    public int random2 = ((int) (Math.random() * 52));
 
-    public String toString()
-    {
-        return "" + SUITS[suit] + VALUES[value];
-    } 
+
+
+}  
 
 
 
