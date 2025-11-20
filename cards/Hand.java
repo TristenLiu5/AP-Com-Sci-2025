@@ -2,49 +2,57 @@ package cards;
 
 public class Hand {
 
+    private Card[] cards;     
+    private int size;     
 
-    private String[] Current;
+       public Hand(int maxCards) {
+        cards = new Card[maxCards];
+        size = 0;
+    }
 
-public Hand(int hand){
+  
+    public void add(Card c) {
+        if (size < cards.length) {
+            cards[size] = c;
+            size++;
+        }
+    }
 
+  
+    public int length() {
+        return size;
+    }
 
-}
-
-public void add(){
+   
+    public Card get(int index) {
+        return cards[index];
+    }
 
     
-}
+    public Card remove(int index) {
+        Card removedCard = cards[index];
 
-public int length(){
+      
+        for (int i = index; i < size - 1; i++) {
+            cards[i] = cards[i + 1];
+        }
 
-    return Current.length;
     
-}
+        cards[size - 1] = null;
+        size--;
 
-public String get(int a){
+        return removedCard;
+    }
 
-    if ((a > Current.length) || (a < 0))
-    {
-        return "";
+   
+    public String toString() {
+        String result = "";
+        for (int i = 0; i < size; i++) {
+            result += cards[i];
+            if (i < size - 1) {
+                result += ", ";
+            }
+        }
+        return result;
     }
-    else
-    {
-    return Current[a];
-    }
-    
-}
-
-public String remove(int a){
-
-    if ((a > Current.length) || (a < 0))
-    {
-        return "";
-    }
-    else
-    {
-    return Current[a];
-    //remove card
-    }
-    
-}
 }

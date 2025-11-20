@@ -21,6 +21,6 @@ public class Card {
 
     public String toString()
     {
-        return "" + SUITS[suit] + VALUES[value];
+        return  "" + SUITS[suit] + VALUES[value];
     } 
 }
