@@ -37,7 +37,7 @@ public class Game {
 
     public void deal()
     {
-        Card card;
+        Card card; //help
         card = deck.draw();
         player.add(card);
 
