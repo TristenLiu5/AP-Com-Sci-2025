@@ -53,7 +53,7 @@ public void shuffle(){
     public String draw(){
 
         if (drawNum < 51){
-        return "" + DeckSuit[drawNum] + "," + DeckSuit[drawNum];
+        return ("" + DeckSuit[drawNum] + "," + DeckSuit[drawNum] + "");
         }
         else
         {
