@@ -40,7 +40,7 @@ public void shuffle(){
             DeckValue[j] = DeckValue[deckCut + j];
             DeckValue[deckCut + j] = storage;
             
-            }
+            } //yes
             
             
 
