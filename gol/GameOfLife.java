@@ -9,6 +9,7 @@ public class GameOfLife implements Board {
 
     public GameOfLife(int x, int y)
     {
+        int[][] gameBoard = new int[x][y];
         // Construct a 2d array of the given x and y size.
     }
 
@@ -32,8 +33,9 @@ public class GameOfLife implements Board {
 
     // Step the simulation forward one turn.
     public void step()
-    {
-        
+    {   
+        //if 
+
         print();
         // Update the game board, store a 1 if the cell is alive and a 0 otherwise.
     }
