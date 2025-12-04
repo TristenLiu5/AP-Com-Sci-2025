@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class GameOfLife implements Board {
 
     // Integers: 0 or 1 for alive or dead
-    private int[][] board;
+    private int[][] board = new int[10][10];
 
     public GameOfLife(int x, int y)
     {
@@ -23,12 +23,17 @@ public class GameOfLife implements Board {
 
     // Run the simulation for a number of turns
     public void run(int turns) {
+
+        for (int i = 0; i < turns; i++){
+            step();
+        }
         // call step the number of times requested
     }
 
     // Step the simulation forward one turn.
     public void step()
     {
+        
         print();
         // Update the game board, store a 1 if the cell is alive and a 0 otherwise.
     }
