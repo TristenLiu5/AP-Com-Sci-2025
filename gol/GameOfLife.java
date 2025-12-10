@@ -34,7 +34,24 @@ public class GameOfLife implements Board {
     // Step the simulation forward one turn.
     public void step()
     {   
-        countNeighbors(0, 0)
+        for (int x = 0; x < board.length; x++) {
+
+            for (int y = 0; y < board.length; y++) {
+                countNeighbors(x, y);
+
+
+
+                if (board[x][y] == 1 && (countNeighbors(x, y) <= 1 || (countNeighbors(x, y) > 3)))
+                {
+                    board[x][y] = 0;
+                }
+                else if (board[x][y] == 0 && (countNeighbors(x, y) == 3))
+                {
+                    board[x][y] = 1;
+                }
+
+                }
+            }
         print();
         // Update the game board, store a 1 if the cell is alive and a 0 otherwise.
     }
@@ -45,64 +62,60 @@ public class GameOfLife implements Board {
         // count the number of neighbors the cell has
         // use the get(x,y) method to read any board state you need.
 
-        for (x = 0; x < board.length; x++) {
 
-            for (y = 0; y < board.length; y++) {
-
-                if (board [x - 1][y] == 1)
-                {
-                
-                if (board [x - 1][y] == 1)
-                {
-                count++;
-                }
-                if (board [x - 1][y+1] == 1)
-                {
-                count++;
-                }
-                if (board [x - 1][y-1] == 1)
-                {
-                count++;
-                }
-
-                if (board [x][y - 1] == 1)
-                {
-                count++;
-                }
-                if (board [x - 1][y+1] == 1)
-                {
-                count++;
-                }
-
-                if (board [x +1][y] == 1)
-                {
-                count++;
-                }
-                if (board [x +1][y+1] == 1)
-                {
-                count++;
-                }
-                if (board [x +1][y-1] == 1)
-                {
-                count++;
-                }
-                }
-
-
-                if (board[x][y] == 1 && (count <= 1 || count > 3))
-                {
-                    board[x][y] = 0;
-                }
-                else if (board[x][y] == 0 && count == 3)
-                {
-                    board[x][y] = 1;
-                }
-                
-
-
-            }
-
+        if (x == 0)
+        {
+            x = 10;
         }
+        else if (x == 10)
+        {
+            x = 1;
+        }
+        if (y == 0)
+        {
+            y = 10;
+        }
+        else if (y == 10)
+        {
+            y = 1;
+        }
+
+                
+                if (board[x - 1][y] == 1)
+                {
+                count++;
+                }
+                if (board[x - 1][y+1] == 1)
+                {
+                count++;
+                }
+                if (board[x - 1][y-1] == 1)
+                {
+                count++;
+                }
+
+                if (board[x][y - 1] == 1)
+                {
+                count++;
+                }
+                if (board[x - 1][y+1] == 1)
+                {
+                count++;
+                }
+
+                if (board[x +1][y] == 1)
+                {
+                count++;
+                }
+                if (board[x +1][y+1] == 1)
+                {
+                count++;
+                }
+                if (board[x +1][y-1] == 1)
+                {
+                count++;
+                }
+                
 
 
         return count;
