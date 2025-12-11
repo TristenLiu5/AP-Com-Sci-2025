@@ -6,6 +6,7 @@ public class GameOfLife implements Board {
 
     // Integers: 0 or 1 for alive or dead
     private int[][] board = new int[10][10];
+    private int[][] storage = new int[10][10];
 
     public GameOfLife(int x, int y)
     {
@@ -18,6 +19,8 @@ public class GameOfLife implements Board {
         for (int i = 0; i < data.length; i++) {
             for (int j = 0; j < data[0].length; j++) {
                 board[i + x][j + y] = data[i][j];
+                storage[i + x][j + y] = data[i][j];
+                
             }
         }
     }
@@ -41,18 +44,28 @@ public class GameOfLife implements Board {
 
 
 
-                if (board[x][y] == 1 && (countNeighbors(x, y) <= 1 || (countNeighbors(x, y) > 3)))
+                if (board[x][y] == 1)
                 {
-                    board[x][y] = 0;
-                }
-                else if (board[x][y] == 0 && (countNeighbors(x, y) == 3))
+                    if (countNeighbors(x, y) <= 1 || (countNeighbors(x, y) > 3))
                 {
-                    board[x][y] = 1;
-                }
 
+                    System.out.println(countNeighbors(x, y));
+                    board[x][y] = 0; 
+                        
+                }
+                }
+                else if (board[x][y] == 0)
+                {
+                    if (countNeighbors(x, y) == 3)
+                {
+                    System.out.println(countNeighbors(x, y));
+                    board[x][y] = 1; 
+                        
+                }
                 }
             }
         print();
+        }
         // Update the game board, store a 1 if the cell is alive and a 0 otherwise.
     }
 
@@ -62,25 +75,24 @@ public class GameOfLife implements Board {
         // count the number of neighbors the cell has
         // use the get(x,y) method to read any board state you need.
 
+                if (x-1 < 0)
+                {
+                    x = 1;
+                }
+                else if (x+1 > 9)
+                {
+                    x = 8;
+                }
 
-        if (x == 0)
-        {
-            x = 10;
-        }
-        else if (x == 10)
-        {
-            x = 1;
-        }
-        if (y == 0)
-        {
-            y = 10;
-        }
-        else if (y == 10)
-        {
-            y = 1;
-        }
-
-                
+                if (y-1 < 0)
+                {
+                    y = 1;
+                }
+                else if (y+1 > 9)
+                {
+                    y = 8;
+                }
+                    
                 if (board[x - 1][y] == 1)
                 {
                 count++;
