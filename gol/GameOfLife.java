@@ -93,42 +93,63 @@ public class GameOfLife implements Board {
         // count the number of neighbors the cell has
         // use the get(x,y) method to read any board state you need.
 
-                 if ((x != 0) && (y != 0) && (x != 9) && (y != 9))
-                {
-                if (board[x - 1][y] == 1)
+        int tempX = x;
+        int tempX2 = x;
+        int tempY = y;
+        int tempY2 = y;
+
+        if (x == 0)
+        {
+            tempX = 10;
+        }
+        else if (x == 9)
+        {
+            tempX2= -1;
+        }
+
+        if (y == 0)
+        {
+            tempY = 10;
+        }
+        else if (y == 9)
+        {
+            tempY2= -1;
+        }
+
+
+                if (board[tempX - 1][y] == 1)
                 {
                 count++;
                 }
-                if (board[x - 1][y+1] == 1)
+                if (board[tempX - 1][tempY2+1] == 1)
                 {
                 count++;
                 }
-                if (board[x - 1][y-1] == 1)
+                if (board[tempX - 1][tempY-1] == 1)
                 {
                 count++;
                 }
 
-                if (board[x][y - 1] == 1)
+                if (board[x][tempY - 1] == 1)
                 {
                 count++;
                 }
-                if (board[x][y+1] == 1)
+                if (board[x][tempY2+1] == 1)
                 {
                 count++;
                 }
 
-                if (board[x +1][y] == 1)
+                if (board[tempX2 +1][y] == 1)
                 {
                 count++;
                 }
-                if (board[x +1][y+1] == 1)
+                if (board[tempX2 +1][tempY2+1] == 1)
                 {
                 count++;
                 }
-                if (board[x +1][y-1] == 1)
+                if (board[tempX2 +1][tempY-1] == 1)
                 {
                 count++;
-                }
                 }
                 
 
