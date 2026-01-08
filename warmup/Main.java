@@ -40,7 +40,7 @@ public class Main {
                 if (second % 2 == 0)
                 {
                     sum += second;
-                    System.out.println(sum);
+                    System.out.println("sum = " + sum);
                 }
             }
     }
