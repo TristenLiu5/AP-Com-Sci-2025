@@ -4,20 +4,30 @@ public class InsertionSort implements Sorter {
 
     public void sort(int[] input) {
         System.out.println("Insertion Sort!!!");
-        int temp = 0;
+        int temp;
 
         for (int i = 0; i <= input.length - 2; i++)
         {
-            System.out.println(input[0] + " " + input[1] + " " + input[2] + " " + input[3]);
+
+            int key = input[i + 1];
+
+            if (input[i] > key)
+            {
+                
+
             for (int j = i; j <= input.length - 2; j++)
             {
-                if (input[j] < temp)
+                System.out.println(input[0] + " " + input[1] + " " + input[2] + " " + input[3]);
+                
+
+                if (input[j] > key)
                 {
                     temp = input[i];
-                    input[i] = input[j];
-                    input[j] = temp;
+                    input[i] = input[i + 1];
+                    input[i + 1] = temp;
                 }
                 
+            }
             }
         }
         
