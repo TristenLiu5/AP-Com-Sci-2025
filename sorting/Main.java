@@ -23,7 +23,7 @@ public class Main {
     public static int[] randomArray(int length)
     {
         // TODO: make this return an actual random array of the provided length.
-        int[] a = {10, 5, 3, 2};
+        int[] a = {10, 3, 5, 2};
         return a;
     }
 
