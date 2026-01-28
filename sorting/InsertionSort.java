@@ -6,31 +6,21 @@ public class InsertionSort implements Sorter {
         System.out.println("Insertion Sort!!!");
         int temp;
 
-        for (int i = 0; i <= input.length - 2; i++)
-        {
-
-            int key = input[i + 1];
-
-            if (input[i] > key)
-            {
                 
 
-            for (int j = i; j <= input.length - 2; j++)
+            for (int i = input.length - 2; i >= 0; i--)
             {
-                System.out.println(input[0] + " " + input[1] + " " + input[2] + " " + input[3]);
+                int key = input[i + 1];
                 
-
-                if (input[j] > key)
+                if (input[i] > key)
                 {
-                    temp = input[i];
-                    input[i] = input[i + 1];
-                    input[i + 1] = temp;
+            
                 }
                 
             }
-            }
+            
         }
         
 
     }
-}
+
