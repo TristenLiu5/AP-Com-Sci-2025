@@ -30,7 +30,7 @@ public class InsertionSort implements Sorter {
                     input[j] = input[j+1];
                     input[j+1] = temp;
                }
-               System.out.println(input[0] + " " + input[1] + " " + input[2] + " " + input[3] + " " + input[4]);
+               
             }
             }
                 
