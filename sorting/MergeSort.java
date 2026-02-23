@@ -1,10 +1,12 @@
 package sorting;
 
 public class MergeSort implements Sorter {
+    int step = 0; 
 
     public void sort(int[] input) {
         // Start mergeSort by providing the whole array
         mergeSort(input, input.length);
+        
     }
 
      /**
@@ -13,6 +15,7 @@ public class MergeSort implements Sorter {
      * @param  list  reference to an array of integers to be sorted
      */
     public void mergeSort(int [] list, int n){
+        
         if (n < 2)
         {
             return;
@@ -21,16 +24,20 @@ public class MergeSort implements Sorter {
         int mid = n / 2;
         int[] l = new int[mid];
         int[] r = new int[n - mid];
+        step++; 
 
         // Copy first half to l
         for (int i = 0; i < mid; i++)
         {
             l[i] = list[i];
+            step++; 
         }
+        
         // Copy second half to r
         for (int i = mid; i < n; i++)
         {
             r[i - mid] = list[i];
+            step++; 
         }
         // Recursive call to mergeSort on split array
         mergeSort(l, mid);
@@ -38,6 +45,7 @@ public class MergeSort implements Sorter {
 
         // merge the separate chunks
         merge(list, l, r, mid, n - mid);
+        System.out.println(step);
     }
 
     public static void merge(int[] a, int[] l, int[] r, int left, int right) {
@@ -46,6 +54,7 @@ public class MergeSort implements Sorter {
         // Copy the smaller element from each chunk first.
         while (i < left && j < right)
         {
+            
             if (l[i] <= r[j])
             {
                 a[k++] = l[i++];

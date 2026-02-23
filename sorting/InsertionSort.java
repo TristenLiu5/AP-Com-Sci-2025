@@ -5,8 +5,7 @@ public class InsertionSort implements Sorter {
     public void sort(int[] input) {
         System.out.println("Insertion Sort!!!");
         int temp;
-
-                
+        int step = 0;    
 
             for (int i = 0; i <= input.length - 2; i++)
             {
@@ -30,11 +29,13 @@ public class InsertionSort implements Sorter {
                     input[j] = input[j+1];
                     input[j+1] = temp;
                }
+               step++;
                
             }
             }
                 
             }
+            System.out.println(step);
             
         }
         
