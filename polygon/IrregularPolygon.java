@@ -8,7 +8,10 @@ public class IrregularPolygon {
     private ArrayList<Point2D.Double> myPolygon = new ArrayList<Point2D.Double>();
 
     // constructor
-    public IrregularPolygon() {}
+    public IrregularPolygon() {
+
+
+    }
 
     // public methods
     public void add(Point2D.Double aPoint)
@@ -18,6 +21,8 @@ public class IrregularPolygon {
 
     public double perimeter() {
         // TODO: Calculate the perimeter.
+        double x = myPolygon.getX(0);
+        double y = myPolygon.getY(0);
         return 3.14;
     }
 
@@ -33,8 +38,10 @@ public class IrregularPolygon {
         try {
             // TODO: Draw the polygon.
             // Documents: https://pavao.org/compsci/gpdraw/html/gpdraw/DrawingTool.html
-            //DrawingTool myDrawingTool = new DrawingTool(new SketchPad(500, 500));
-            //myDrawingTool.move(50, 50);
+            // DrawingTool myDrawingTool = new DrawingTool(new SketchPad(500, 500));
+            // myDrawingTool.move(TestSuite.singlePoint.getX(0), 50);
+            // myDrawingTool.move(100,0);
+
         } catch (java.awt.HeadlessException e) {
             System.out.println("Exception: No graphics support available.");
         }
