@@ -16,13 +16,16 @@ public class IrregularPolygon {
     // public methods
     public void add(Point2D.Double aPoint)
     {
+        Point2D.Double(aPoint, 0.0);
         // TODO: Add a point to the IrregularPolygon.
     }
 
     public double perimeter() {
         // TODO: Calculate the perimeter.
-        singlePoint.getX(0);
-        singlePoint.getY(0);
+        myPolygon.getX();
+        myPolygon.getY();
+
+        //for (int i = 0; i < )
 
         return 3.14;
     }
@@ -42,6 +45,8 @@ public class IrregularPolygon {
             // DrawingTool myDrawingTool = new DrawingTool(new SketchPad(500, 500));
             // myDrawingTool.move(TestSuite.singlePoint.getX(0), 50);
             // myDrawingTool.move(100,0);
+            drawLine(0, 0);
+
 
         } catch (java.awt.HeadlessException e) {
             System.out.println("Exception: No graphics support available.");
