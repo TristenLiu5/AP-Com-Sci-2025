@@ -21,8 +21,9 @@ public class IrregularPolygon {
 
     public double perimeter() {
         // TODO: Calculate the perimeter.
-        double x = myPolygon.getX(0);
-        double y = myPolygon.getY(0);
+        singlePoint.getX(0);
+        singlePoint.getY(0);
+
         return 3.14;
     }
 
