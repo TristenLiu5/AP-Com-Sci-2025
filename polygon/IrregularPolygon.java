@@ -18,11 +18,9 @@ public class IrregularPolygon {
     public void add(Point2D.Double aPoint)
     {
         myPolygon.add(aPoint);
-        // TODO: Add a point to the IrregularPolygon.
     }
 
     public double perimeter() {
-        // TODO: Calculate the perimeter.
         double perimeter = 0.0;
         int size = myPolygon.size();
 
@@ -41,7 +39,6 @@ public class IrregularPolygon {
     }
 
     public double area() {
-        // TODO: Calculate the area.
         int size = myPolygon.size();
         Double area = 0.0;
 
@@ -72,11 +69,20 @@ public class IrregularPolygon {
         // Wrap the DrawingTool in a try/catch to allow development without need for graphics.
         try {
             // TODO: Draw the polygon.
-            // Documents: https://pavao.org/compsci/gpdraw/html/gpdraw/DrawingTool.html
-            // DrawingTool myDrawingTool = new DrawingTool(new SketchPad(500, 500));
-            // myDrawingTool.move(TestSuite.singlePoint.getX(0), 50);
-            // myDrawingTool.move(100,0);
-            //drawLine(0, 0);
+            // Documents: https://pavao.org/compsci/gpdraw/html/gpdraw/DrawingTool.html\
+            int size = myPolygon.size();
+            DrawingTool myDrawingTool = new DrawingTool(new SketchPad(500, 500));
+            for(int i = 0; i < size; i++) {
+            Point2D.Double p1 = myPolygon.get(i);
+            Point2D.Double p2 = myPolygon.get((i + 1) % size);
+
+            myDrawingTool.move(p1.getX(), p1.getY());
+            myDrawingTool.move(p2.getX(),p2.getY());
+
+
+            }
+
+
 
 
         } catch (java.awt.HeadlessException e) {
