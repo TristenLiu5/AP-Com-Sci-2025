@@ -69,18 +69,23 @@ public class IrregularPolygon {
         // Wrap the DrawingTool in a try/catch to allow development without need for graphics.
         try {
             // TODO: Draw the polygon.
-            // Documents: https://pavao.org/compsci/gpdraw/html/gpdraw/DrawingTool.html\
+            // Documents: https://pavao.org/compsci/gpdraw/html/gpdraw/DrawingTool.html
             int size = myPolygon.size();
             DrawingTool myDrawingTool = new DrawingTool(new SketchPad(500, 500));
+            myDrawingTool.up();
+            myDrawingTool.move(myDrawingTool.getXPos() - 100, myDrawingTool.getYPos());
+            myDrawingTool.down();
             for(int i = 0; i < size; i++) {
-            Point2D.Double p1 = myPolygon.get(i);
-            Point2D.Double p2 = myPolygon.get((i + 1) % size);
-
-            myDrawingTool.move(p1.getX(), p1.getY());
-            myDrawingTool.move(p2.getX(),p2.getY());
+                Point2D.Double p1 = myPolygon.get(i);
 
 
+
+                myDrawingTool.move(myDrawingTool.getXPos() + p1.getX(), myDrawingTool.getXPos() + p1.getY());
+                    
             }
+            myDrawingTool.up();
+            myDrawingTool.move(myDrawingTool.getXPos() + 50, myDrawingTool.getYPos());
+            myDrawingTool.down();
 
 
 
