@@ -49,7 +49,12 @@ public class TowerModel {
     public void move(int source, int destination)
     {
         System.out.println("Move #" + ++moveCounter + " from " + source + " to " + destination);
-        // TODO!!
+        towers[destination].push(1);
+        towers[source].pop();
+        print();
+
+
+
     }
 
     // Helper method to nicely print the current model state.
