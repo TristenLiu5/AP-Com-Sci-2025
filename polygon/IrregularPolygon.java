@@ -72,17 +72,20 @@ public class IrregularPolygon {
             // Documents: https://pavao.org/compsci/gpdraw/html/gpdraw/DrawingTool.html
             int size = myPolygon.size();
             DrawingTool myDrawingTool = new DrawingTool(new SketchPad(500, 500));
+
+
             myDrawingTool.up();
             myDrawingTool.move(myDrawingTool.getXPos() - 100, myDrawingTool.getYPos());
             myDrawingTool.down();
-            for(int i = 0; i < size; i++) {
+            for(int i = 0; i < size; i++)
+            {
+                System.out.println("pls work");
                 Point2D.Double p1 = myPolygon.get(i);
 
 
-
-                myDrawingTool.move(myDrawingTool.getXPos() + p1.getX(), myDrawingTool.getXPos() + p1.getY());
-                    
+                myDrawingTool.move(myDrawingTool.getXPos() + p1.getX(), myDrawingTool.getXPos() + p1.getY());  
             }
+            System.out.println("work");
             myDrawingTool.up();
             myDrawingTool.move(myDrawingTool.getXPos() + 50, myDrawingTool.getYPos());
             myDrawingTool.down();
@@ -90,7 +93,8 @@ public class IrregularPolygon {
 
 
 
-        } catch (java.awt.HeadlessException e) {
+        } 
+        catch (java.awt.HeadlessException e) {
             System.out.println("Exception: No graphics support available.");
         }
     }
