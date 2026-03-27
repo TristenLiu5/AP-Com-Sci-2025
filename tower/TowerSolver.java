@@ -10,16 +10,20 @@ public class TowerSolver {
 
     public void solve(TowerModel model)
     {
+        TowerModel tower = new TowerModel();
         this.model = model;
-        solve(0);
+        int number = Math.pow(2,tower.height()) - 1;
+        solve(number);
     }
 
     // Create an overloaded solve(...) method
     // This new method will be recursive (call itself)
     //
-    public void solve(int a)
+    public int solve(int n)
     {
+        move(1,2);
 
+        return solve();
     }
 
 }
