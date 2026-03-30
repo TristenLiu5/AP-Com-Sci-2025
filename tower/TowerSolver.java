@@ -10,10 +10,9 @@ public class TowerSolver {
 
     public void solve(TowerModel model)
     {
-        TowerModel tower = new TowerModel();
         this.model = model;
-        int number = Math.pow(2,tower.height()) - 1;
-        solve(number);
+        double number = Math.pow(2,model.height()) - 1;
+        solve((int)number);
     }
 
     // Create an overloaded solve(...) method
@@ -21,7 +20,7 @@ public class TowerSolver {
     //
     public int solve(int n)
     {
-        move(1,2);
+        TowerModel.move(1,2);
 
         return solve();
     }
